@@ -21,9 +21,6 @@ spec:
           env:
             - name: ENVIRONMENT
               value: "production"
-          volumeMounts:
-            - name: cic-data
-              mountPath: /var/cic
           resources:
             requests:
               cpu: "500m"
