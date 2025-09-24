@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configserver-base
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: configserver-base
+  template:
+    metadata:
+      labels:
+        app: configserver-base
+    spec:
+      containers:
+        - name: configserver-base
+          image: pelenor:5000/configserver-base:__IMAGE_TAG__
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ENVIRONMENT
+              value: "production"
+          volumeMounts:
+            - name: cic-data
+              mountPath: /var/cic
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "64Mi"
+            limits:
+              cpu: "2000m"
+              memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: configserver-base
+spec:
+  selector:
+    app: configserver-base
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
