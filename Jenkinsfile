@@ -43,7 +43,7 @@ spec:
         GIT_CREDENTIALS_ID = '10fcc78e-d54d-4d2a-9bb3-441762173a44'
         REPO_URL = 'https://github.com/derbrewer/configserver-base.git'
         IMAGE_NAME = "pelenor:5000/configserver-base:${BUILD_NUMBER}"
-
+        MODULE_PATH = "."
         SSH_USER = 'mib'
         SSH_HOST = 'pelenor'
     }
