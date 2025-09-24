@@ -15,7 +15,9 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>21</java.version>
-	</properties>
+
+    </properties>
+
 
     <dependencyManagement>
         <dependencies>
@@ -69,6 +71,7 @@
 	</dependencies>
 
 	<build>
+        <finalName>service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
